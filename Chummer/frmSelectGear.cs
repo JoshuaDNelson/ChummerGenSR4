@@ -184,6 +184,12 @@ namespace Chummer
 				lstGear.SelectedValue = _strSelectedGear;
 		}
 
+        private void lblSource_Click(object sender, EventArgs e)
+        {
+            CommonFunctions objCommon = new CommonFunctions(_objCharacter);
+            objCommon.OpenPDF(lblSource.Text);
+        }
+
 		private void cboCategory_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			if (cboCategory.SelectedValue == null)
@@ -1217,5 +1223,6 @@ namespace Chummer
 			lblSearchLabel.Left = txtSearch.Left - 6 - lblSearchLabel.Width;
 		}
 		#endregion
+
 	}
 }
