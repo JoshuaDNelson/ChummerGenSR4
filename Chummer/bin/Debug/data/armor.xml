@@ -798,6 +798,17 @@
 			<page>326</page>
 		</armor>
 		<armor>
+			<name>Tactical Vest/Smart Pack</name>
+			<category>Armor</category>
+			<b>0</b>
+			<i>0</i>
+			<armorcapacity>0</armorcapacity>
+			<avail>4</avail>
+			<cost>500</cost>
+			<source>AR</source>
+			<page>62</page>
+		</armor>
+		<armor>
 			<name>Bike Racing Armor</name>
 			<category>Armor</category>
 			<b>4</b>

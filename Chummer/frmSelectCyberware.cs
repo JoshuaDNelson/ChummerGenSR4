@@ -712,7 +712,8 @@ namespace Chummer
 				try
 				{
 					xprAvail = nav.Compile(strAvailExpr.Replace("Rating", nudRating.Value.ToString()));
-					int intAvail = Convert.ToInt32(nav.Evaluate(xprAvail)) + _intAvailModifier;
+				    string temp = string.Format(GlobalOptions.Instance.CultureInfo, "{0}", nav.Evaluate(xprAvail));
+                    int intAvail = Convert.ToInt32(temp) + _intAvailModifier;
 					// Avail cannot go below 0.
 					if (intAvail < 0)
 						intAvail = 0;
@@ -739,7 +740,8 @@ namespace Chummer
 							}
 
 							xprAvail = nav.Compile(strAvailExpr.Replace("Rating", nudRating.Value.ToString()));
-							int intAvail = Convert.ToInt32(nav.Evaluate(xprAvail)) + _intAvailModifier;
+						    string temp = string.Format(GlobalOptions.Instance.CultureInfo, "{0}", nav.Evaluate(xprAvail));
+                            int intAvail = Convert.ToInt32(temp) + _intAvailModifier;
 							// Avail cannot go below 0;
 							if (intAvail < 0)
 								intAvail = 0;
@@ -783,8 +785,9 @@ namespace Chummer
 					try
 					{
 						XPathExpression xprCost = nav.Compile(objXmlCyberware["cost"].InnerText.Replace("Rating", nudRating.Value.ToString()));
-						lblCost.Text = String.Format("{0:###,###,##0¥}", Convert.ToInt32((Convert.ToDouble(nav.Evaluate(xprCost), GlobalOptions.Instance.CultureInfo) * _dblCostMultiplier * dblGenetechCostModifier)));
-						intItemCost = Convert.ToInt32((Convert.ToDouble(nav.Evaluate(xprCost), GlobalOptions.Instance.CultureInfo) * _dblCostMultiplier * dblGenetechCostModifier));
+					    string temp = string.Format(GlobalOptions.Instance.CultureInfo, "{0}", nav.Evaluate(xprCost));
+                        lblCost.Text = String.Format("{0:###,###,##0¥}", Convert.ToInt32((Convert.ToDouble(temp, GlobalOptions.Instance.CultureInfo) * _dblCostMultiplier * dblGenetechCostModifier)));
+						intItemCost = Convert.ToInt32((Convert.ToDouble(temp, GlobalOptions.Instance.CultureInfo) * _dblCostMultiplier * dblGenetechCostModifier));
 					}
 					catch
 					{
@@ -836,7 +839,8 @@ namespace Chummer
 				else
 				{
 					XPathExpression xprEssence = nav.Compile(objXmlCyberware["ess"].InnerText.Replace("Rating", nudRating.Value.ToString()));
-					dblESS = Math.Round(Convert.ToDouble(nav.Evaluate(xprEssence), GlobalOptions.Instance.CultureInfo) * dblCharacterESSModifier, _objCharacter.Options.EssenceDecimals, MidpointRounding.AwayFromZero);
+				    string temp = string.Format(GlobalOptions.Instance.CultureInfo, "{0}", nav.Evaluate(xprEssence));
+                    dblESS = Math.Round(Convert.ToDouble(temp, GlobalOptions.Instance.CultureInfo) * dblCharacterESSModifier, _objCharacter.Options.EssenceDecimals, MidpointRounding.AwayFromZero);
 				}
 				// Check if the character has Sensitive System.
 				if (_objMode == Mode.Cyberware)
@@ -885,7 +889,9 @@ namespace Chummer
 								lblCapacity.Text = strValues[Convert.ToInt32(nudRating.Value) - 1];
 							}
 							else
-								lblCapacity.Text = nav.Evaluate(xprCapacity).ToString();
+							{
+                                lblCapacity.Text = string.Format(GlobalOptions.Instance.CultureInfo, "{0}", nav.Evaluate(xprCapacity));
+                            }
 						}
 						if (blnSquareBrackets)
 							lblCapacity.Text = "[" + lblCapacity.Text + "]";
@@ -899,7 +905,8 @@ namespace Chummer
 					{
 						strSecondHalf = strSecondHalf.Replace("[", string.Empty).Replace("]", string.Empty);
 						xprCapacity = nav.Compile(strSecondHalf.Replace("Rating", nudRating.Value.ToString()));
-						strSecondHalf = "[" + nav.Evaluate(xprCapacity).ToString() + "]";
+					    string temp = string.Format(GlobalOptions.Instance.CultureInfo, "{0}", nav.Evaluate(xprCapacity));
+                        strSecondHalf = "[" + temp + "]";
 					}
 
 					lblCapacity.Text += "/" + strSecondHalf;
@@ -920,7 +927,9 @@ namespace Chummer
 							lblCapacity.Text = strValues[Convert.ToInt32(nudRating.Value) - 1];
 						}
 						else
-							lblCapacity.Text = nav.Evaluate(xprCapacity).ToString();
+						{
+                            lblCapacity.Text = string.Format(GlobalOptions.Instance.CultureInfo, "{0}", nav.Evaluate(xprCapacity));
+						}
 					}
 					if (blnSquareBrackets)
 						lblCapacity.Text = "[" + lblCapacity.Text + "]";
