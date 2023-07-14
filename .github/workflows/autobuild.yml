@@ -25,11 +25,11 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       
-      - name: Setup .NET SDK
-        uses: actions/setup-dotnet@v3
-        with:
+      #- name: Setup .NET SDK
+      #  uses: actions/setup-dotnet@v3
+      #  with:
           # Semantic version range syntax or exact version of a dotnet version
-          dotnet-version: '7.0'
+      #    dotnet-version: '7.0'
       
       - name: Setup MSBuild
         uses: microsoft/setup-msbuild@v1.3.1
@@ -44,7 +44,7 @@ jobs:
         run: dotnet --list-runtimes
         
       - name: Build the solution
-        run: msbuild ChummerGenSR4.sln /p:Configuration=Release -p:FrameworkPathOverride="C:\Program Files\dotnet\shared\Microsoft.NETCore.App\v7.0.9"
+        run: msbuild ChummerGenSR4.sln /p:Configuration=Release
         
       - name: Zip Release
         uses: TheDoctor0/zip-release@0.6.0
