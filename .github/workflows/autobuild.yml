@@ -40,6 +40,8 @@ jobs:
       - name: Restore NuGet packages
         run: nuget restore ChummerGenSR4.sln
         
+      - name: Find .NET
+        run: dotnet --list-sdks
         
       - name: Build the solution
         run: msbuild ChummerGenSR4.sln /p:Configuration=Release -p:FrameworkPathOverride="C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v7.0"
