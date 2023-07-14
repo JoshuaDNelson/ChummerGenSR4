@@ -41,8 +41,10 @@ jobs:
         run: nuget restore ChummerGenSR4.sln
         
       - name: Find .NET
-        run: ls 'C:\Program Files\Reference Assemblies\Microsoft\Framework'
+        run: dotnet --info
         
+      - name: Find .NET
+        run: grep -r mscorlib.dll /
         
       - name: Build the solution
         run: msbuild ChummerGenSR4.sln /p:Configuration=Release -p:FrameworkPathOverride="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0"
