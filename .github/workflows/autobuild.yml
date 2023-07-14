@@ -41,13 +41,11 @@ jobs:
         run: nuget restore ChummerGenSR4.sln
         
       - name: Find .NET
-        run: ls 'C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0'
+        run: ls 'C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0'
         
-      - name: Find .NET
-        run: ls 'C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5'
         
       - name: Build the solution
-        run: msbuild ChummerGenSR4.sln /p:Configuration=Release
+        run: msbuild ChummerGenSR4.sln /p:Configuration=Release -p:FrameworkPathOverride="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0"
         
       - name: Zip Release
         uses: TheDoctor0/zip-release@0.6.0
