@@ -25,11 +25,11 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       
-      #- name: Setup .NET SDK
-      #  uses: actions/setup-dotnet@v3
-      #  with:
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v3
+        with:
           # Semantic version range syntax or exact version of a dotnet version
-      #    dotnet-version: '7.0'
+          dotnet-version: '6.0'
       
       - name: Setup MSBuild
         uses: microsoft/setup-msbuild@v1.3.1
@@ -41,7 +41,7 @@ jobs:
         run: nuget restore ChummerGenSR4.sln
         
       - name: Find .NET
-        run: dotnet --list-runtimes
+        run: ls C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework
         
       - name: Build the solution
         run: msbuild ChummerGenSR4.sln /p:Configuration=Release
