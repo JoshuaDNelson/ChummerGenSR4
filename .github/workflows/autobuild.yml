@@ -44,7 +44,7 @@ jobs:
         run: dotnet --list-runtimes
         
       - name: Build the solution
-        run: msbuild ChummerGenSR4.sln /p:Configuration=Release -p:FrameworkPathOverride="C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v7.0"
+        run: msbuild ChummerGenSR4.sln /p:Configuration=Release -p:FrameworkPathOverride="C:\Program Files\dotnet\shared\Microsoft.NETCore.App\v7.0.9"
         
       - name: Zip Release
         uses: TheDoctor0/zip-release@0.6.0
