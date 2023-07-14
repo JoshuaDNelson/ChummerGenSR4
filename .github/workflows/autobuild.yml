@@ -41,7 +41,7 @@ jobs:
         run: nuget restore ChummerGenSR4.sln
         
       - name: Find .NET
-        run: ls 'C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0'
+        run: ls 'C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework'
         
         
       - name: Build the solution
