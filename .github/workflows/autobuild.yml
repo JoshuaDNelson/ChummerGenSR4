@@ -44,7 +44,7 @@ jobs:
         run: dotnet --info
         
       - name: Find .NET
-        run: grep -r mscorlib.dll /
+        run: Get-ChildItem -Path C:\ -Filter mscorlib.dll -Recurse
         
       - name: Build the solution
         run: msbuild ChummerGenSR4.sln /p:Configuration=Release -p:FrameworkPathOverride="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0"
