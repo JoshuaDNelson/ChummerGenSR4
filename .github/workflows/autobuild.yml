@@ -34,6 +34,13 @@ jobs:
       - name: Restore NuGet packages
         run: nuget restore ChummerGenSR4.sln
         
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v3
+        with:
+          # Semantic version range syntax or exact version of a dotnet version
+          dotnet-version: '4.0.x'
+        
+        
       - name: Build the solution
         run: msbuild ChummerGenSR4.sln /p:Configuration=Release
         
