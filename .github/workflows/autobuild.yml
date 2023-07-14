@@ -38,10 +38,10 @@ jobs:
         uses: actions/setup-dotnet@v3
         with:
           # Semantic version range syntax or exact version of a dotnet version
-          dotnet-version: '4.6.1'
+          dotnet-version: '7.0'
         
       - name: Build the solution
-        run: msbuild ChummerGenSR4.sln /p:Configuration=Release -p:FrameworkPathOverride="C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1"
+        run: msbuild ChummerGenSR4.sln /p:Configuration=Release -p:FrameworkPathOverride="C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v7.0"
         
       - name: Zip Release
         uses: TheDoctor0/zip-release@0.6.0
